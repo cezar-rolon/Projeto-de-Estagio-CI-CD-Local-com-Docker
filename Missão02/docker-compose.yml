@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+    ports:
+      - "3000:3000"   # Web UI
+      - "222:22"      # SSH
+    volumes:
+      - ./gitea/data:/data
